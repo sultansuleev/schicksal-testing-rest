@@ -12,7 +12,6 @@ public class RoleServiceImpl implements RoleService {
     @Autowired
     private RolesRepository rolesRepository;
 
-
     @Override
     public Roles getRoleByName(String role) {
         return rolesRepository.findByRole(role);

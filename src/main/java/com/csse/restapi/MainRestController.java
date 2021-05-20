@@ -1,7 +1,9 @@
 package com.csse.restapi;
 
+import com.csse.restapi.dto.CardRequest;
 import com.csse.restapi.dto.JwtRequest;
 import com.csse.restapi.dto.MessageResponse;
+import com.csse.restapi.entities.Card;
 import com.csse.restapi.entities.Users;
 import com.csse.restapi.jwt.JwtTokenGenerator;
 import com.csse.restapi.services.UserService;
@@ -10,12 +12,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
+
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping(value = "/api")
 public class MainRestController {
-
-
     @Autowired
     private JwtTokenGenerator jwtTokenGenerator;
 
@@ -56,6 +58,4 @@ public class MainRestController {
 
         return ResponseEntity.badRequest().body(new MessageResponse("Old password does not match!"));
     }
-
-
 }
